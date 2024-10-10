@@ -1,0 +1,30 @@
+.card {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  color: #333333;
+}
+
+.small {
+  max-width: 200px;
+}
+
+.wide {
+  max-width: 400px;
+}
+
+.large {
+  max-width: 400px;
+  padding: 15px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  gap: 10px;
+  margin: 30px auto;
+  border-left: 1px solid #d9d9d9;
+}

@@ -37,7 +37,7 @@ const WeatherWidget: FC<WeatherWidgetProps> = ({ size }) => {
 
   if (isLoading) {
     return (
-      <Box className={classNames(s[size], s.card, s.loader)}>
+      <Box className={classNames(s[size], s.card, s.placeholder)}>
         <CircularProgress />
       </Box>
     );
@@ -47,7 +47,7 @@ const WeatherWidget: FC<WeatherWidgetProps> = ({ size }) => {
     return (
       <Stack
         container
-        className={classNames(s[size], s.card)}
+        className={classNames(s[size], s.card, s.placeholder)}
         padding="15px"
         alignItems="center"
         justifyContent="center"

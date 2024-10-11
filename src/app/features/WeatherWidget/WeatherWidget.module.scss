@@ -12,19 +12,34 @@
 
 .wide {
   max-width: 400px;
+  container-type: inline-size;
+
+  .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    gap: 10px;
+    margin: 30px auto;
+    border-left: 1px solid #d9d9d9;
+  }
+
+  & > div {
+    @container (max-width: 375px) {
+      flex-direction: column;
+
+      .list {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #d9d9d9;
+        padding: 15px;
+        margin: 0;
+      }
+    }
+  }
 }
 
 .large {
   max-width: 400px;
   padding: 15px;
-}
-
-.list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  gap: 10px;
-  margin: 30px auto;
-  border-left: 1px solid #d9d9d9;
 }

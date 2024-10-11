@@ -136,7 +136,7 @@ const WeatherWidget: FC<WeatherWidgetProps> = ({ size }) => {
           >
             Forecast for a 5 days
           </Typography>
-          <Grid container spacing="1px" justifyContent="space-between">
+          <Grid container spacing="1px" justifyContent="center">
             {forecast?.forecastday?.map(({ date, day }) => (
               <WeatherItem
                 date={new Date(date)}

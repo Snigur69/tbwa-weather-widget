@@ -39,7 +39,7 @@ const WeatherInfo: FC<WeatherInfoProps> = ({
   pressure,
   windSpeed,
 }) => (
-  <Box>
+  <Box className={s.wrapper}>
     <Typography
       variant="h5"
       textAlign="center"
@@ -51,8 +51,8 @@ const WeatherInfo: FC<WeatherInfoProps> = ({
     <Typography variant="h6" textAlign="center">
       {getFormattedDate(date)}
     </Typography>
-    <Grid container spacing={2} className={s.container}>
-      <Grid item lg={4}>
+    <Grid container spacing="5px" className={s.container}>
+      <Grid item sm={4}>
         <IconTypography variant="body1" icon={<CelsiusIcon />}>
           {temperature}
         </IconTypography>
@@ -63,10 +63,10 @@ const WeatherInfo: FC<WeatherInfoProps> = ({
           {cloud}
         </IconTypography>
       </Grid>
-      <Grid item lg={4}>
+      <Grid item sm={4}>
         <img src={icon} alt="icon" />
       </Grid>
-      <Grid item xl={4}>
+      <Grid item sm={4}>
         <IconTypography variant="body1" icon={<DesertIcon />}>
           {heatIndex}
         </IconTypography>

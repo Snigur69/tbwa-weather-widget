@@ -12,3 +12,20 @@
     width: 17px;
   }
 }
+
+.wrapper {
+  container-type: inline-size;
+
+  @container (max-width: 355px) {
+    img {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  @container (max-width: 250px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+}

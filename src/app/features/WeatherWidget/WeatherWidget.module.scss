@@ -43,3 +43,17 @@
   max-width: 400px;
   padding: 15px;
 }
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.small, &.wide {
+    height: 200px;
+  }
+
+  &.large {
+    height: 400px;
+  }
+}

@@ -1,6 +1,13 @@
 'use client';
 import { FC, useMemo } from 'react';
-import { Card, Divider, Stack, Typography } from '@mui/material';
+import {
+  Box,
+  Card,
+  CircularProgress,
+  Divider,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { Grid } from '@mui/system';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
@@ -19,7 +26,7 @@ interface WeatherWidgetProps {
 
 const WeatherWidget: FC<WeatherWidgetProps> = ({ size }) => {
   const { weatherData } = useWeather();
-  const { current, forecast, location, isError } = weatherData;
+  const { current, forecast, location, isError, isLoading } = weatherData;
 
   const formattedLocation = `${location?.name}, ${location?.country}`;
 
@@ -27,6 +34,14 @@ const WeatherWidget: FC<WeatherWidgetProps> = ({ size }) => {
     () => forecast?.forecastday.slice(1, 3),
     [forecast],
   );
+
+  if (isLoading) {
+    return (
+      <Box className={classNames(s[size], s.card, s.loader)}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   if (isError) {
     return (
@@ -102,6 +117,7 @@ const WeatherWidget: FC<WeatherWidgetProps> = ({ size }) => {
             <Grid item xs={6} className={s.list}>
               {shortForecast?.map(({ date, day }) => (
                 <WeatherItem
+                  key={date}
                   date={new Date(date)}
                   icon={day?.condition?.icon}
                   temperature={day?.avgtemp_c}
@@ -139,6 +155,7 @@ const WeatherWidget: FC<WeatherWidgetProps> = ({ size }) => {
           <Grid container spacing="1px" justifyContent="center">
             {forecast?.forecastday?.map(({ date, day }) => (
               <WeatherItem
+                key={date}
                 date={new Date(date)}
                 icon={day?.condition?.icon}
                 temperature={day?.avgtemp_c}
